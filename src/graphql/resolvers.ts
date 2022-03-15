@@ -29,7 +29,7 @@ export default {
                 title: itemData.title,
                 content: itemData.content
             });
-    
+
             const savedItem = await item.save()
     
             return {...savedItem._doc, _id: savedItem._id.toString(), createdAt: savedItem.createdAt.toISOString(), updatedAt: savedItem.updatedAt.toISOString()}

@@ -12,10 +12,15 @@ export default buildSchema(`
 
     type TodoList {
         items: [TodoItem]!
-        
+
     }
 
-    input ItemData {
+    input AddItemData {
+        title: String!
+        content: String
+    }
+
+    input UpdateItemData {
         title: String
         content: String
     }
@@ -25,9 +30,9 @@ export default buildSchema(`
     }
 
     type RootMutation {
-        addItem(itemData: ItemData ): TodoItem!
+        addItem(itemData: AddItemData ): TodoItem!
         deleteItem(id: ID!): Boolean
-        updateItem(id: ID!, itemData: ItemData): TodoItem! 
+        updateItem(id: ID!, itemData: UpdateItemData): TodoItem! 
     }
 
     schema {
