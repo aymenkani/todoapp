@@ -26,16 +26,28 @@ export default {
     },
     addItem: async ({itemData}: ItemData) => {
         try {
+            // validation
             const errors = []
-            if(validator.isLength(itemData.title, {min: 5})) {
-
+            if(!validator.isLength(itemData.title, {min: 5})) {
+                errors.push({message: 'title is too short!'})
+            }
+            if(!validator.isNumeric(itemData.title)) {
+                errors.push({message: 'title should not contain only numbers!'})
+            }
+            if(errors.length > 0) {
+                const customError = `
+                    ${errors.map(err => err.message + '\n')}
+                `
+                throw new Error(customError)
             }
             
+            // create new item
             const item: HydratedDocument<TodoItemType> = new TodoItem({
                 title: itemData.title,
                 content: itemData.content
             });
 
+            // save item
             const savedItem = await item.save()
     
             return {...savedItem._doc, _id: savedItem._id.toString(), createdAt: savedItem.createdAt.toISOString(), updatedAt: savedItem.updatedAt.toISOString()}

@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 
 import graphqlSchema from './graphql/schema'
 import graphqlResolvers from './graphql/resolvers'
-import { GraphQLError } from 'graphql'
 
    
 
@@ -16,7 +15,7 @@ app.use('/', graphqlHTTP({
     schema: graphqlSchema,
     rootValue: graphqlResolvers,
     graphiql: true,
-    formatError(err: GraphQLError) {
+    formatError(err) {
         if(!err.originalError) return err
         const message = err.message || 'An error occurred';
         return {message}
