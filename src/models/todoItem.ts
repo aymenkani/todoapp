@@ -1,20 +1,18 @@
-import { Schema, model } from 'mongoose'
-import { TodoItem } from '../types/index'
-
-
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import { Schema, model } from 'mongoose';
+import { TodoItem } from '../types/index';
 
 const todoItemSchema = new Schema<TodoItem>({
 
-    title: {
-        type: String,
-        required: true
-    },
-    content: {
-        type: String,
-    }
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+  },
 
-
-}, {timestamps: true})
-
+}, { timestamps: true });
 
 export default model<TodoItem>('TodoList', todoItemSchema);
