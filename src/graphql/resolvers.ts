@@ -1,4 +1,5 @@
 import TodoItem from '../models/todoItem'
+import validator from 'validator'
 
 import { TodoItem as TodoItemType } from '../types'
 import { HydratedDocument } from 'mongoose'
@@ -7,10 +8,10 @@ import { HydratedDocument } from 'mongoose'
 
 type ItemData = {
     itemData: {
-        title: String
-        content: String
+        title: string
+        content: string
     },
-    id: String | Number
+    id: string | number
 }
 
 
@@ -25,6 +26,11 @@ export default {
     },
     addItem: async ({itemData}: ItemData) => {
         try {
+            const errors = []
+            if(validator.isLength(itemData.title, {min: 5})) {
+
+            }
+            
             const item: HydratedDocument<TodoItemType> = new TodoItem({
                 title: itemData.title,
                 content: itemData.content

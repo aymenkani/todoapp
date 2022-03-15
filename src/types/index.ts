@@ -1,7 +1,7 @@
 
 export interface TodoItem {
-    title: String,
-    content?: String,
+    title: string,
+    content?: string,
     createdAt: Date,
     updatedAt: Date,
     _doc: any
