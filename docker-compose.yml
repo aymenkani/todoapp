@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  api:
+    container_name: api
+    restart: always
+    build: .
+    ports: 
+      - 37017:37017
+    depends_on:
+      - mongo
+  mongo:
+      container_name: mongo
+      image: mongo:4.4.6
+      restart: always
+      expose: 
+        - "37017"
+      ports: 
+        - "37017:27017"
