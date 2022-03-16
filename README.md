@@ -1,8 +1,6 @@
 # todoapp with typescript
 a nodejs/graphql api that serve a simple todo app 
 
-**switch to master branch**
-
 **run the app**</br>
 This app uses typescript, so, when running the app, it will, first, compile the code,
 then it will execute 'node app.js' from the "dist" folder using nodemon package for auto reloading and compiling.</br>
