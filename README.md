@@ -1,4 +1,4 @@
-# todoapp with typescript
+# Shopify Technical Challenge todoapp with typescript
 a nodejs/graphql api that serve a simple todo app 
 
 **run the app**</br>
